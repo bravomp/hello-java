@@ -26,4 +26,5 @@ steps:
       echo Write your commands here
       
       echo Hello world
+      set path=C:\Users\mbravo\Documents\Polaris\sipse\polaris_cli-win64-1.6.99\bin;%PATH%
       polaris -v
