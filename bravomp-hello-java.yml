@@ -8,7 +8,8 @@ trigger:
 
 pool:
   name: default
-  vmImage: 'ubuntu-latest'
+  # Used for Azure cloud
+  #vmImage: 'ubuntu-latest'
 
 
 steps:
