@@ -27,7 +27,7 @@ steps:
   inputs:
     script: |
       echo Write your commands here
-      
+      polaris -v
       echo Hello world
 - task: PowerShell@2
   inputs:
