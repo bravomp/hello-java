@@ -30,6 +30,7 @@ steps:
       set PATH=C:\Users\mbravo\Documents\Polaris\sipse\polaris_cli-win64-1.6.99\bin;%PATH%
       echo %PATH%
       polaris -v
+      C:\Users\mbravo\Documents\Polaris\sipse\polaris_cli-win64-1.6.99\bin\polaris -v
       where java
       where python
       where mvn
