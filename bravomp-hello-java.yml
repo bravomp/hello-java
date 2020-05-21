@@ -29,6 +29,9 @@ steps:
       echo Write your commands here
       set PATH=C:\Users\mbravo\Documents\Polaris\sipse\polaris_cli-win64-1.6.99\bin;%PATH%
       polaris -v
+      where java
+      where python
+      where mvn
       echo Hello world
 - task: PowerShell@2
   inputs:
