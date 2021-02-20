@@ -1,4 +1,5 @@
 pipeline {
+	import java.util.logging.Logger	
 	agent any
 
 	stages {
