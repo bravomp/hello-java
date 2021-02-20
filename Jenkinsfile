@@ -1,5 +1,7 @@
 pipeline {
-	import java.util.logging.Logger	
+	import java.util.logging.Logger
+	Logger logger = Logger.getLogger('org.example.jobdsl')
+	logger.info('Hello from a Job DSL script!')	
 	agent any
 
 	stages {
