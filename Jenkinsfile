@@ -1,5 +1,9 @@
 pipeline {
 	agent any
+	environment {
+		CONNECT = 'https://localhost:8080/'
+		PROJECT = 'hello-java'
+	}
 
 	stages {
 		stage('Build') {
@@ -20,6 +24,7 @@ pipeline {
 				}
 			}
 			steps {
+				echo "$CONNECT"
 				withCoverityEnvironment(coverityInstanceUrl: "$CONNECT", projectName: "$PROJECT", streamName: "$PROJECT-$BRANCH_NAME") {
 					sh '''
 						cov-build --dir idir mvn -B clean compile
