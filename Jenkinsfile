@@ -9,12 +9,12 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
-				sh 'mvn -B clean compile'
+				// sh 'mvn -B clean compile'
 			}
 		}
 		stage('Test') {
 			steps {
-				sh 'mvn -B test'
+				// sh 'mvn -B test'
 			}
 		}
 		stage('Coverity Full Scan') {
@@ -30,7 +30,6 @@ pipeline {
 				echo "branch: $BRANCH_NAME"
 				withCoverityEnvironment(coverityInstanceUrl: "$CONNECT", projectName: "$PROJECT", streamName: "$PROJECT-$BRANCH_NAME") {
 					sh '''
-						'mvn -B clean'
 						cov-build --dir idir mvn -B clean compile
 						cov-analyze --dir idir --ticker-mode none --strip-path $WORKSPACE --webapp-security
 						cov-commit-defects --dir idir --ticker-mode none --url $COV_URL --stream $COV_STREAM \
