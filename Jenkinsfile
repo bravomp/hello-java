@@ -24,6 +24,7 @@ pipeline {
 					expression { BRANCH_NAME ==~ /(master|stage|release)/ }
 				}
 			} */
+			when { triggeredBy 'TimerTrigger' }
 			steps {
 				echo "connect url: $CONNECT"
 				echo "project: $PROJECT"
