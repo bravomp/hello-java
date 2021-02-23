@@ -17,12 +17,12 @@ pipeline {
 			}
 		}
 		stage('Coverity Full Scan') {
-			when {
+			/* when {
 				allOf {
 					not { changeRequest() }
 					expression { BRANCH_NAME ==~ /(master|stage|release)/ }
 				}
-			}
+			} */
 			steps {
 				echo "$CONNECT"
 				withCoverityEnvironment(coverityInstanceUrl: "$CONNECT", projectName: "$PROJECT", streamName: "$PROJECT-$BRANCH_NAME") {
