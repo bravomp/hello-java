@@ -1,14 +1,15 @@
 pipeline {
 	agent any
+	
 	environment {
-		CONNECT = 'https://localhost:8080/'
+		CONNECT = 'http://localhost:8080/'
 		PROJECT = 'hello-java'
 	}
 
 	stages {
 		stage('Build') {
 			steps {
-				sh 'mvn -B compile'
+				sh 'mvn -B clean compile'
 			}
 		}
 		stage('Test') {
@@ -29,6 +30,7 @@ pipeline {
 				echo "branch: $BRANCH_NAME"
 				withCoverityEnvironment(coverityInstanceUrl: "$CONNECT", projectName: "$PROJECT", streamName: "$PROJECT-$BRANCH_NAME") {
 					sh '''
+						'mvn -B clean'
 						cov-build --dir idir mvn -B clean compile
 						cov-analyze --dir idir --ticker-mode none --strip-path $WORKSPACE --webapp-security
 						cov-commit-defects --dir idir --ticker-mode none --url $COV_URL --stream $COV_STREAM \
