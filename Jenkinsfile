@@ -26,7 +26,7 @@ pipeline {
 			steps {
 				echo "connect url: $CONNECT"
 				echo "project: $PROJECT"
-				echo "branch: $BRANCH-NAME"
+				echo "branch: $BRANCH_NAME"
 				withCoverityEnvironment(coverityInstanceUrl: "$CONNECT", projectName: "$PROJECT", streamName: "$PROJECT-$BRANCH_NAME") {
 					sh '''
 						cov-build --dir idir mvn -B clean compile
