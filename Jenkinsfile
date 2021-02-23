@@ -1,6 +1,6 @@
 pipeline {
 	agent any
-	
+	triggers { cron('*/2 * * * *') }
 	environment {
 		CONNECT = 'http://localhost:8080'
 		PROJECT = 'hello-java'
