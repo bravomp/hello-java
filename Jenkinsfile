@@ -2,7 +2,7 @@ pipeline {
 	agent any
 	
 	environment {
-		CONNECT = 'http://localhost:8080/'
+		CONNECT = 'http://localhost:8080'
 		PROJECT = 'hello-java'
 	}
 
