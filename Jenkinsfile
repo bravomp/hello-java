@@ -14,7 +14,7 @@ pipeline {
 		}
 		stage('Test') {
 			steps {
-				sh 'mvn -B clean'
+				sh 'mvn -B clean '
 			}
 		}
 		parallel {
