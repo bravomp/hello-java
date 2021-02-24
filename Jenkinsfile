@@ -9,12 +9,12 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
-				// sh 'mvn -B clean compile'
+				sh 'mvn -B clean compile'
 			}
 		}
 		stage('Test') {
 			steps {
-				// sh 'mvn -B test'
+				sh 'mvn -B clean'
 			}
 		}
 		stage('Coverity Full Scan') {
