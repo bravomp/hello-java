@@ -8,10 +8,9 @@ public class HardCodedCred {
         
         try {
             Connection conn = DriverManager.getConnection(DB_URL, 
-            // USER, PASS)
-            /*\
-            /*username*/ "guest",
-            /*password*/ "guestpw");
+             USER, PASS);
+            ///*username*/ "guest",
+            ///*password*/ "guestpw");
         } 
         catch (SQLException e) {
             e.printStackTrace();
