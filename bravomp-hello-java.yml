@@ -13,6 +13,7 @@ pool:
 variables:
   - name: project
     value: 'bravomp-hello-java'
+  
 
 steps:
 # - task: Maven@3
@@ -29,18 +30,9 @@ steps:
   inputs:
     script: |
       echo Write your commands here
-      polaris -v
-      set PATH=C:\Polaris\polaris_cli-win64-1.6.99\bin;%PATH%
-      echo %PATH%
-      polaris -v
-      C:\Users\mbravo\Documents\Polaris\sipse\polaris_cli-win64-1.6.99\bin\polaris -v
-      where java
-      where python
-      where mvn
-      echo Hello world
-      curl -fLOsS $POLARIS_SERVER_URL/api/tools/polaris_cli-linux64.zip
-      unzip -d $(Agent.TempDirectory) -jo polaris_cli-linux64.zip
-      $(Agent.TempDirectory)/polaris --co project.name=$(PROJECT) analyze -w -- mvn -B package -DskipTests
+      curl -fLOsS https://sipse.polaris.synopsys.com/api/tools/polaris_cli-linux64.zip
+      unzip -d C:/tmp -jo polaris_cli-linux64.zip
+      C:/tmp/polaris --co project.name=$(PROJECT) analyze -w -- mvn -B package -DskipTests
 
 - task: PowerShell@2
   inputs:
