@@ -13,6 +13,8 @@ pool:
 variables:
   - name: project
     value: 'bravomp-hello-java'
+  - name: POLARIS_SERVER_URL
+    value: 'https://sipse.polaris.synopsys.com'
   
 
 steps:
