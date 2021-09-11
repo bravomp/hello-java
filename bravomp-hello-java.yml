@@ -10,32 +10,24 @@ pool:
   name: default
   # Used for Azure cloud
   #vmImage: 'ubuntu-latest'
-
+variables:
+  - name: project
+    value: 'bravomp-hello-java'
+  - name: POLARIS_SERVER_URL
+    value: 'https://sipse.polaris.synopsys.com'
+  - name: POLARIS_ACCESS_TOKEN
+    value:  t9kfkcr4892c58frq4oru4re364vrtv14j5nlk1skb4m1ifo5s6g
+  
 
 steps:
-# - task: Maven@3
-#   inputs:
-#     mavenPomFile: 'pom.xml'
-#     mavenOptions: '-Xmx3072m'
-#     javaHomeOption: 'JDKVersion'
-#     jdkVersionOption: '1.8'
-#     jdkArchitectureOption: 'x64'
-#     publishJUnitResults: true
-#     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-#     goals: 'package'
 - task: CmdLine@2
   inputs:
     script: |
       echo Write your commands here
-      polaris -v
-      set PATH=C:\Polaris\polaris_cli-win64-1.6.99\bin;%PATH%
-      echo %PATH%
-      polaris -v
-      C:\Users\mbravo\Documents\Polaris\sipse\polaris_cli-win64-1.6.99\bin\polaris -v
-      where java
-      where python
-      where mvn
-      echo Hello world
+      curl -fLOsS https://sipse.polaris.synopsys.com/api/tools/polaris_cli-win64.zip
+      unzip -d C:\tmp -jo polaris_cli-win64.zip
+      C:\tmp\polaris --co project.name=$(PROJECT) analyze -w -- mvn -B package -DskipTests
+
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
